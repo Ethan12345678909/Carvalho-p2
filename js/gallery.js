@@ -54,7 +54,7 @@ var mJson;
 
 // URL for the JSON to load by default
 // Some options for you are: images.json, images.short.json; you will need to create your own extra.json later
-var mUrl = images.json;
+var mUrl = 'images.json';
 
 
 //You can optionally use the following function as your event callback for loading the source of Images from your json data (for HTMLImageObject).
@@ -70,7 +70,7 @@ $(document).ready( function() {
 	
 	// This initially hides the photos' metadata information
 	$('.details').eq(0).hide();
-	
+		fetchJSON()
 });
 
 window.addEventListener('load', function() {
@@ -91,15 +91,15 @@ function GalleryImage() {
 	let img  
 }
 
-function fetch.JSON(images.JSON) {
-	mRequest.open('GET', 'mJson')
-	mRequest.Onreadystatechange function () {
-		if (mRequest.readyState >= 200 && mJson.status < 400) {
-			var data = JSON.parse(mRequest.responseText);
+function fetchJSON(mUrl) {
+	
+	mRequest.Onreadystatechange = function () {
+		if (this.readyState == 4 && this.status == 200) {
+			var mJson = JSON.parse(mRequest.responseText);
 		} else {
 			console.log("We connected to the server, but it returned an error.");
 		}
-		
+		mRequest.open('GET', mUrl, true)
 		mRequest.send('')
 	}
 }
