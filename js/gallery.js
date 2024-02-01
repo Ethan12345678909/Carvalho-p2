@@ -34,9 +34,24 @@ function animate() {
 
 function swapPhoto() {
 	//Add code here to access the #slideShow element.
+	if (mCurrentIndex >= mImages.length) {
+		mCurrentIndex = 0;
+	} 
+	if (mCurrentIndex >= mImages.length) {
+		mCurrentIndex = mImages.length - 1
+	}
 	//Access the img element and replace its source
-	//with a new image from your images array which is loaded 
+	document.getElementById('photo').src = mImages.img[mCurrentIndex]
+	//with a new image from your images array which is loaded
+	var location = document.getElementsByClassName('location')[0]
+	var description = document.getElementsByClassName('description')[0]
+	var date = document.getElementsByClassName('date')[0]
+	locationElement.innerHTML = "Location: " + [mCurrentIndex].location
+	descriptionElement.innerHTML = "Description: " + [mCurrentIndex].description
+	dateElement.innerHTML = "Date: " + [mCurrentIndex].date
 	//from the JSON string
+	var mLastFrameTime = 0
+	mCurrentIndex += 1
 	console.log('swap photo');
 }
 
@@ -102,4 +117,7 @@ function fetchJSON(mUrl) {
 		mRequest.open('GET', mUrl, true)
 		mRequest.send('')
 	}
+}
+function iterateJSON() {
+	for [x = 0]
 }
