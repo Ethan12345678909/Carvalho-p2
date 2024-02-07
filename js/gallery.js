@@ -97,7 +97,13 @@ $(document).ready(function () {
     // This initially hides the photos' metadata information
     // $('.details').eq(0).hide();
     fetchJSON()
-
+        $('img.moreIndicator').on('click', () => {
+            if($(this).hasClass('rot90')) {
+                $(this).append('rot270')
+            } else {
+                $($(this)).removeClass('rot270')
+            }
+        });
 
 });
 
